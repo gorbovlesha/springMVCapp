@@ -43,4 +43,10 @@ public class FirstController {
         model.addAttribute("employee", employee);
         return "employee-info";
     }
+
+    @RequestMapping("/deleteEmployee")
+    public String deleteEmployee(@RequestParam("empId") int id) {
+        employeeService.deleteEmployee(employeeService.getEmployeeById(id));
+        return "redirect:/";
+    }
 }
